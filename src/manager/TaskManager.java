@@ -67,7 +67,7 @@ public class TaskManager {
         return epicById;
     }
 
-    public void updateEpicStatus(Epic epic) {
+    private void updateEpicStatus(Epic epic) {
         List<Integer> subtasks = epic.getSubtasks();
         boolean allDone = true;
         boolean allNew = true;

@@ -38,8 +38,8 @@ public class Main {
         taskManager.createSubtask(subtask5);
         taskManager.createTask(task1);
         taskManager.createTask(task2);
-        taskManager.updateEpicStatus(epic1);
-        taskManager.updateEpicStatus(epic2);
+        //taskManager.updateEpicStatus(epic1);
+       // taskManager.updateEpicStatus(epic2);
 
 
         System.out.println(" Задача: " + task1.getName() + " - Статус: " + task1.getStatus() + " - ID: " + Task.getId());
