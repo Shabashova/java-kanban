@@ -1,7 +1,7 @@
 package tasks;
 
 import tasks.TaskStatus;
-import  manager.TaskManager;
+import manager.TaskManager;
 
 public class Task {
     private String name;
