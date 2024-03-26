@@ -1,7 +1,12 @@
+package tasks;
+
+import tasks.TaskStatus;
+import  manager.TaskManager;
+
 public class Task {
     private String name;
     private String description;
-    private int id;
+    private static int id;
     private TaskStatus status;
 
     public Task(String name, String description, int id, TaskStatus status) {
@@ -28,7 +33,7 @@ public class Task {
         this.description = description;
     }
 
-    public int getId() {
+    public static int getId() {
         return id;
     }
 

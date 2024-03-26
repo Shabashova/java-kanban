@@ -1,3 +1,10 @@
+import manager.TaskManager;
+import tasks.Epic;
+import tasks.Subtask;
+import tasks.Task;
+import tasks.TaskStatus;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,34 +14,35 @@ public class Main {
         TaskManager taskManager = new TaskManager();
         Task task1 = new Task(" Изучить Java", "Пройти 5 спринт", 1, TaskStatus.NEW);
         Task task2 = new Task(" Сдать работу по 4 спринту", "Написать приложение по треккинг задач", 2, TaskStatus.IN_PROGRESS);
-        List<Subtask> subtasks = new ArrayList<>();
-        Epic epic1 = new Epic("Похудеть", "Похудеть к лету на 5 кг", 5, TaskStatus.NEW, subtasks);
+        List<Integer> subtasks1 = new ArrayList<>();
+        List<Integer> subtasks2 = new ArrayList<>();
+        Epic epic1 = new Epic("Похудеть", "Похудеть к лету на 5 кг", 5, TaskStatus.NEW, subtasks1);
 
-        Epic epic2 = new Epic("Говорить по англиски", "Говорить по англиски", 5, TaskStatus.NEW, subtasks);
-        Subtask subtask3 = new Subtask("  Выучить английкий", "Пройти уровень b2", 1, TaskStatus.NEW, epic2);
-        Subtask subtask4 = new Subtask("  Выучить английкий хорошо", "Начать свободно говорить", 2, TaskStatus.IN_PROGRESS, epic2);
-        Subtask subtask5 = new Subtask("  Выучить английки совсем хорошо", "Начать свободно говорить", 2, TaskStatus.IN_PROGRESS, epic2);
+        Epic epic2 = new Epic("Говорить по англиски", "Говорить по англиски", 5, TaskStatus.NEW, subtasks2);
+        Subtask subtask3 = new Subtask("  Выучить английкий", "Пройти уровень b2", 1, TaskStatus.NEW, 3);
+        Subtask subtask4 = new Subtask("  Выучить английкий хорошо", "Начать свободно говорить", 2, TaskStatus.IN_PROGRESS, 3);
+        Subtask subtask5 = new Subtask("  Выучить английки совсем хорошо", "Начать свободно говорить", 2, TaskStatus.IN_PROGRESS, 3);
 
         // Создаем подзадачи и эпик
-        Subtask subtask1 = new Subtask("  Заняться спортом", "Бег, тренажерный зал, растяжка", 3, TaskStatus.DONE, epic1);
-        Subtask subtask2 = new Subtask("  Следить за питанием", "Никаких быстрых углеводов", 4, TaskStatus.IN_PROGRESS, epic1);
-        Subtask newsubtask2 = new Subtask("  Хочу есть!", "Хочу быстрых углеводов", 4, TaskStatus.IN_PROGRESS, epic1);
+        Subtask subtask1 = new Subtask("  Заняться спортом", "Бег, тренажерный зал, растяжка", 3, TaskStatus.DONE, 1);
+        Subtask subtask2 = new Subtask("  Следить за питанием", "Никаких быстрых углеводов", 4, TaskStatus.IN_PROGRESS, 1);
+        Subtask newsubtask2 = new Subtask("  Хочу есть!", "Хочу быстрых углеводов", 4, TaskStatus.IN_PROGRESS, 3);
 
+
+        taskManager.createEpic(epic1);
+        taskManager.createEpic(epic2);
+        taskManager.createSubtask(subtask1);
+        taskManager.createSubtask(subtask2);
+        taskManager.createSubtask(subtask3);
+        taskManager.createSubtask(subtask4);
+        taskManager.createSubtask(subtask5);
         taskManager.createTask(task1);
         taskManager.createTask(task2);
-        taskManager.createTask(epic1);
-        taskManager.createTask(epic2);
-        taskManager.createTask(subtask1);
-        taskManager.createTask(subtask2);
-        taskManager.createTask(subtask3);
-        taskManager.createTask(subtask4);
-        taskManager.createTask(subtask5);
-
         taskManager.updateEpicStatus(epic1);
         taskManager.updateEpicStatus(epic2);
 
 
-        System.out.println(" Задача: " + task1.getName() + " - Статус: " + task1.getStatus() + " - ID: " + task1.getId());
+        System.out.println(" Задача: " + task1.getName() + " - Статус: " + task1.getStatus() + " - ID: " + Task.getId());
         System.out.println(" Задача: " + task2.getName() + " - Статус: " + task2.getStatus() + " - ID: " + task2.getId());
         System.out.println("Эпик: " + epic1.getName() + " - Количество подзадач: " + epic1.getSubtasks().size() + " - Статус: " + epic1.getStatus() +
                 " - ID: " + epic1.getId());
@@ -44,9 +52,9 @@ public class Main {
 
         System.out.println("Эпик: " + epic2.getName() + " - Количество подзадач: " + epic2.getSubtasks().size() + " - Статус: " + epic2.getStatus() +
                 " - ID: " + epic2.getId());
-        System.out.println("  Подзадача: " + subtask3.getName() + " - Статус: " + subtask1.getStatus() + " - ID: " + subtask3.getId());
-        System.out.println("  Подзадача: " + subtask4.getName() + " - Статус: " + subtask2.getStatus() + " - ID: " + subtask4.getId());
-        System.out.println("  Подзадача: " + subtask5.getName() + " - Статус: " + subtask2.getStatus() + " - ID: " + subtask5.getId());
+      System.out.println("  Подзадача: " + subtask3.getName() + " - Статус: " + subtask1.getStatus() + " - ID: " + subtask3.getId());
+      System.out.println("  Подзадача: " + subtask4.getName() + " - Статус: " + subtask2.getStatus() + " - ID: " + subtask4.getId());
+      System.out.println("  Подзадача: " + subtask5.getName() + " - Статус: " + subtask2.getStatus() + " - ID: " + subtask5.getId());
 
         System.out.println("К 1 ID найдена задача " + taskManager.getTaskById(1).getName());
         System.out.println("К 2 ID найдена задача " + taskManager.getTaskById(2).getName());
@@ -61,8 +69,8 @@ public class Main {
 
         //taskManager.deleteAllTasks();
         //System.out.println (taskManager.getAllTasks());
-        System.out.println("К 6 ID найдена задача " + taskManager.getTaskById(6).getName());
-        taskManager.updateTask(6, (Task) newsubtask2);
+        //System.out.println("К 6 ID найдена задача " + taskManager.getTaskById(6).getName());
+        taskManager.updateTask((Task) newsubtask2);
         System.out.println("К 6 ID найдена задача " + taskManager.getTaskById(6).getName());
         System.out.println("К 1 ID найдена задача " + taskManager.getTaskById(1).getName());
         System.out.println(taskManager.getAllTasks());
@@ -74,3 +82,4 @@ public class Main {
         taskManager.getSubtasksByEpic(epic2);
     }
 }
+
