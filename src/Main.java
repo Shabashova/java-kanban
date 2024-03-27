@@ -76,7 +76,7 @@ public class Main {
         System.out.println(taskManager.getAllTasks());
         System.out.println(taskManager.getSubtasksByEpic(epic2));
         System.out.println(taskManager.getAllSubtasks());
-        taskManager.deleteTaskById(9);
+        //taskManager.deleteTaskById(9);
         //taskManager.deleteTaskById(3);
         System.out.println(taskManager.getAllSubtasks());
         System.out.println(epic2.getStatus());
@@ -86,6 +86,9 @@ public class Main {
         System.out.println(taskManager.getAllSubtasks());
         System.out.println(taskManager.getSubtasksByEpic(epic1));
         System.out.println(taskManager.getSubtasksByEpic(epic2));
+        System.out.println(taskManager.getSubtaskById(5));
+        System.out.println(taskManager.getSubtaskById(6));
+        System.out.println(taskManager.getSubtaskById(7));
     }
 }
 
