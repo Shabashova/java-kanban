@@ -1,13 +1,12 @@
 package tasks;
 
-import tasks.TaskStatus;
-import manager.TaskManager;
-
 public class Task {
     private String name;
     private String description;
     private static int id;
     private TaskStatus status;
+
+
 
     public Task(String name, String description, int id, TaskStatus status) {
         this.name = name;
@@ -15,6 +14,9 @@ public class Task {
         this.id = id;
         this.status = status;
     }
+
+
+
 
     // Геттеры и сеттеры
     public String getName() {
