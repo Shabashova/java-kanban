@@ -4,9 +4,9 @@ import tasks.Task;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.LinkedList;
 public class InMemoryHistoryManager implements HistoryManager {
- private List<Task> viewedTasks = new ArrayList<>();
+ private List<Task> viewedTasks = new LinkedList<>();
     @Override
     public void addViewedTasks(Task task) {
         viewedTasks.add(task);
@@ -17,6 +17,9 @@ public class InMemoryHistoryManager implements HistoryManager {
 
     @Override
     public List<Task> getHistory() {
-        return viewedTasks;
+        List<Task> historyCopy = new ArrayList<>(viewedTasks);
+        return historyCopy;
     }
+
+
 }

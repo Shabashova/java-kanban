@@ -47,7 +47,7 @@ public class Main {
        // TaskManager.updateEpicStatus(epic2);
 
 
-        System.out.println(" Задача: " + task1.getName() + " - Статус: " + task1.getStatus() + " - ID: " + Task.getId());
+        System.out.println(" Задача: " + task1.getName() + " - Статус: " + task1.getStatus() + " - ID: " + task1.getId());
         System.out.println(" Задача: " + task2.getName() + " - Статус: " + task2.getStatus() + " - ID: " + task2.getId());
         System.out.println("Эпик: " + epic1.getName() + " - Количество подзадач: " + epic1.getSubtasks().size() + " - Статус: " + epic1.getStatus() +
                 " - ID: " + epic1.getId());
@@ -75,7 +75,7 @@ public class Main {
         //TaskManager.deleteAllTasks();
         //System.out.println (TaskManager.getAllTasks());
         //System.out.println("К 6 ID найдена задача " + TaskManager.getTaskById(6).getName());
-        taskManager.updateSubtask(newsubtask2);
+        taskManager.updateSubtask(subtask2);
         System.out.println("К 4 ID найдена задача " + taskManager.getSubtaskById(4).getName());
         //System.out.println("К 1 ID найдена задача " + TaskManager.getTaskById(1).getName());
         System.out.println(taskManager.getAllTasks());

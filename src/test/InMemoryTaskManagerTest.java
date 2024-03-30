@@ -1,8 +1,10 @@
-package manager;
+package test;
 
-
+import manager.InMemoryTaskManager;
+import manager.Managers;
+import manager.TaskManager;
 import org.junit.jupiter.api.BeforeAll;
-import org.testng.annotations.Test;
+//import org.testng.annotations.Test;
 import tasks.Subtask;
 import tasks.Task;
 import tasks.TaskStatus;
@@ -14,9 +16,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 class InMemoryTaskManagerTest {
-
-
     @org.junit.jupiter.api.Test
     //@BeforeAll
     void getAllTasks() {
@@ -61,9 +62,14 @@ class InMemoryTaskManagerTest {
             List<Integer> subtasks = new ArrayList<>();
             Epic epic = new Epic("Похудеть", "Похудеть к лету на 5 кг", 5, TaskStatus.NEW, subtasks);
             taskManager.createEpic(epic);
-            Subtask subtask = new Subtask("  Заняться спортом", "Бег, тренажерный зал, растяжка", 3, TaskStatus.DONE, 1);
+            Subtask subtask = new Subtask("  Заняться спортом", "Бег, тренажерный зал, растяжка", 1, TaskStatus.DONE, 1);
             taskManager.createSubtask(subtask);
-            subtasks.contains(subtask);
+            //subtask.getId();
+            Integer kid = subtask.getId();
+           // int kid = subtask.getId();
+            assertTrue(epic.getSubtasks().contains(kid));
+
         }
+
 
     }
