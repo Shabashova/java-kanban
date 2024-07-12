@@ -15,7 +15,7 @@ public class InMemoryTaskManager implements TaskManager {
     private final Map<Integer, Epic> epicsMap = new HashMap<>();
 
     private final Map<Integer, Subtask> subtasksMap = new HashMap<>();
-    private final HistoryManager historyManager = Managers.HistoryManagerGetDefault();
+    private final HistoryManager historyManager = Managers.historyManagerGetDefault();
     private int taskIdCounter = 1; // Поле-счетчик для генерации идентификаторов задач
 
     @Override

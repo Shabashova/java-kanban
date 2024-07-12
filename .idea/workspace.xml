@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="214c6310-9528-4e09-83e1-5af8c481d6b1" name="Changes" comment="fix4">
       <change beforePath="$PROJECT_DIR$/src/manager/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/InMemoryTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/Managers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/Managers.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,10 +167,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.InMemoryTaskManagerTest" />
         <item itemvalue="JUnit.InMemoryTaskManagerTest.testUpdateTaskInInMemoryTaskManager" />
         <item itemvalue="JUnit.InMemoryTaskManagerTest.testTaskEqualityById" />
         <item itemvalue="JUnit.InMemoryTaskManagerTest.testAddSubtaskToEpicInInMemoryTaskManager" />
-        <item itemvalue="JUnit.InMemoryTaskManagerTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -308,7 +309,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/InMemoryTaskManagerTest.java</url>
-          <line>59</line>
+          <line>57</line>
           <properties class="test.InMemoryTaskManagerTest" method="testAddSubtaskToEpicInInMemoryTaskManager">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
