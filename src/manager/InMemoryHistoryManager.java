@@ -11,7 +11,7 @@ public class InMemoryHistoryManager implements HistoryManager {
     private final HashMap<Integer, Node> viewedTasksIndex = new HashMap<>();
     private Node first;
     private Node last;
-  //  private int size;
+    //  private int size;
 
     private void linkLast(Task task) {
         if (task == null) {
@@ -35,7 +35,7 @@ public class InMemoryHistoryManager implements HistoryManager {
         if (node != null) {
             node.prev.next = node.next;
             node.next.prev = node.prev;
-     //       node = null;
+            //       node = null;
         }
     }
 
