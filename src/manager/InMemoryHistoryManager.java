@@ -20,15 +20,15 @@ public class InMemoryHistoryManager implements HistoryManager {
         removeNode(viewedTasksIndex.get(task.getId()));
         viewedTasksIndex.remove(task.getId());
 
-        Node new_node = new Node(last, task, null);
+        Node newNode = new Node(last, task, null);
         if (last != null) {
-            last.next = new_node;
+            last.next = newNode;
         } else {
-            first = new_node;
+            first = newNode;
         }
-        new_node.prev = last;
-        last = new_node;
-        viewedTasksIndex.put(task.getId(), new_node);
+        newNode.prev = last;
+        last = newNode;
+        viewedTasksIndex.put(task.getId(), newNode);
     }
 
     private void removeNode(Node node) {
