@@ -8,19 +8,12 @@ import java.util.List;
 
 public class InMemoryHistoryManager implements HistoryManager {
 
-    private final HashMap<Integer, Node> viewedTasksIndex = new HashMap<>();
-    private Node first;
-    private Node last;
-    //  private int size;
+    private final HashMap<Integer, Node<Task>> viewedTasksIndex = new HashMap<>();
+    private Node<Task> first;
+    private Node<Task> last;
 
     private void linkLast(Task task) {
-        if (task == null) {
-            return;
-        }
-        removeNode(viewedTasksIndex.get(task.getId()));
-        viewedTasksIndex.remove(task.getId());
-
-        Node newNode = new Node(last, task, null);
+        Node<Task> newNode = new Node<>(last, task, null);
         if (last != null) {
             last.next = newNode;
         } else {
@@ -31,20 +24,30 @@ public class InMemoryHistoryManager implements HistoryManager {
         viewedTasksIndex.put(task.getId(), newNode);
     }
 
-    private void removeNode(Node node) {
+    private void removeNode(Node<Task> node) {
         if (node != null) {
-            node.prev.next = node.next;
-            node.next.prev = node.prev;
-            //       node = null;
+            if (node == first && node == last) {
+                first = null;
+                last = null;
+            } else if (node == first) {
+                first = node.next;
+                first.prev = null;
+            } else if (node == last) {
+                last = node.prev;
+                last.next = null;
+            } else {
+                node.prev.next = node.next;
+                node.next.prev = node.prev;
+            }
         }
     }
 
     @Override
     public List<Task> getHistory() {
         ArrayList<Task> retList = new ArrayList<>();
-        Node currentNode = first;
+        Node<Task> currentNode = first;
         while (currentNode != null) {
-            retList.add(currentNode.task);
+            retList.add(currentNode.item);
             currentNode = currentNode.next;
         }
         return retList;
@@ -52,6 +55,11 @@ public class InMemoryHistoryManager implements HistoryManager {
 
     @Override
     public void add(Task task) {
+        if (task == null) {
+            return;
+        }
+        removeNode(viewedTasksIndex.get(task.getId()));
+        viewedTasksIndex.remove(task.getId());
         this.linkLast(task);
     }
 
@@ -61,14 +69,19 @@ public class InMemoryHistoryManager implements HistoryManager {
         viewedTasksIndex.remove(id);
     }
 
-    private static class Node {
-        Task task;
-        Node next;
-        Node prev;
+    @Override
+    public void clearHistory( ) {
+        viewedTasksIndex.clear();
+    }
 
-        Node(Node prev, Task task, Node next) {
+    private static class Node<E> {
+        E item;
+        Node<E> next;
+        Node<E> prev;
 
-            this.task = task;
+        Node(Node<E> prev, E item, Node<E> next) {
+
+            this.item = item;
             this.prev = prev;
             this.next = next;
         }
