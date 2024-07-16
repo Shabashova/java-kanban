@@ -70,7 +70,7 @@ public class InMemoryHistoryManager implements HistoryManager {
     }
 
     @Override
-    public void clearHistory( ) {
+    public void clearHistory() {
         viewedTasksIndex.clear();
     }
 
