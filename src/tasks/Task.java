@@ -47,4 +47,21 @@ public class Task {
     public void setStatus(TaskStatus status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return this.id + ","
+                + "TASK" + ","
+                + this.name + ","
+                + this.status + ","
+                + this.description + ",";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Task) {
+            return ((Task) obj).getId() == this.id;
+        }
+        return false;
+        };
 }
