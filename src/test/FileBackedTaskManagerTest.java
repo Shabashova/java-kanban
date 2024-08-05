@@ -21,9 +21,9 @@ class FileBackedTaskManagerTest {
             var file = File.createTempFile("test", "0");
             System.out.println(file.getPath());
             taskManager = FileBackedTaskManager.loadFromFile(file.getPath());
-            System.out.println(taskManager.toString());
+            System.out.println(taskManager);
         } catch (IOException e) {
-
+            throw new IOException(e);
         }
         Assertions.assertNotNull(taskManager);
         taskManager.deleteAllTasks();
@@ -52,7 +52,7 @@ class FileBackedTaskManagerTest {
             taskManager.createSubtask(new Subtask("подЗадача 3", "подЗадача2", 5, TaskStatus.NEW, epic.getId()));
             Assertions.assertEquals(taskManager.getAllSubtasks().size(), 2);
         } catch (IOException e) {
-
+            throw new IOException(e);
         }
 
 
