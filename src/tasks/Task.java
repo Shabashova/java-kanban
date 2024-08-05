@@ -63,5 +63,7 @@ public class Task {
             return ((Task) obj).getId() == this.id;
         }
         return false;
-        };
+    }
+
+    ;
 }

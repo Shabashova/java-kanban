@@ -9,12 +9,8 @@ import tasks.Task;
 import tasks.TaskStatus;
 
 import java.io.File;
-
 import java.io.IOException;
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class FileBackedTaskManagerTest {
     @org.junit.jupiter.api.Test
@@ -43,23 +39,21 @@ class FileBackedTaskManagerTest {
             System.out.println(file.getPath());
             taskManager = FileBackedTaskManager.loadFromFile(file.getPath());
             Assertions.assertNotNull(taskManager);
-            var epic = new Epic("Эпик 1", "Эпик 1", 0, TaskStatus.NEW, new ArrayList<>() );
+            var epic = new Epic("Эпик 1", "Эпик 1", 0, TaskStatus.NEW, new ArrayList<>());
             taskManager.createEpic(epic);
             Assertions.assertEquals(taskManager.getAllEpics().size(), 1);
 
-            taskManager.createTask( new Task("Задача 1","Задача1", 1, TaskStatus.NEW));
-            taskManager.createTask( new Task("Задача 2","Задача2", 2, TaskStatus.NEW));
-            taskManager.createTask( new Task("Задача 3","Задача2", 3, TaskStatus.NEW));
+            taskManager.createTask(new Task("Задача 1", "Задача1", 1, TaskStatus.NEW));
+            taskManager.createTask(new Task("Задача 2", "Задача2", 2, TaskStatus.NEW));
+            taskManager.createTask(new Task("Задача 3", "Задача2", 3, TaskStatus.NEW));
             Assertions.assertEquals(taskManager.getAllTasks().size(), 3);
 
-            taskManager.createSubtask( new Subtask("подЗадача 3","подЗадача2", 4, TaskStatus.NEW, epic.getId()));
-            taskManager.createSubtask( new Subtask("подЗадача 3","подЗадача2", 5, TaskStatus.NEW, epic.getId()));
+            taskManager.createSubtask(new Subtask("подЗадача 3", "подЗадача2", 4, TaskStatus.NEW, epic.getId()));
+            taskManager.createSubtask(new Subtask("подЗадача 3", "подЗадача2", 5, TaskStatus.NEW, epic.getId()));
             Assertions.assertEquals(taskManager.getAllSubtasks().size(), 2);
         } catch (IOException e) {
 
         }
-
-
 
 
         //taskManager.deleteAllTasks();

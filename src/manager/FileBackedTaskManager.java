@@ -5,53 +5,23 @@ import tasks.Subtask;
 import tasks.Task;
 import tasks.TaskStatus;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class FileBackedTaskManager extends InMemoryTaskManager {
-    enum taskTypes {
-        TASK,
-        EPIC,
-        SUBTASK
-    }
     String fileName;
-    public FileBackedTaskManager( String fileName ){
+
+    public FileBackedTaskManager(String fileName) {
         this.fileName = fileName;
-    }
-
-    public void save() {
-        try (FileWriter writer = new FileWriter( fileName )){
-            super.getAllTasks().forEach( t-> {
-                try {
-                    writer.write (t.toString() + System.lineSeparator());
-                } catch (IOException e) {
-                    throw new ManagerSaveException();
-                }
-            });
-            super.getAllSubtasks().forEach( t-> {
-                try {
-                    writer.write(t.toString()+ System.lineSeparator());
-                } catch (IOException e) {
-                    throw new ManagerSaveException();
-                }
-            });
-            super.getAllEpics().forEach( t-> {
-                try {
-                    writer.write(t.toString()+ System.lineSeparator());
-                } catch (IOException e) {
-                    throw new ManagerSaveException();
-                }
-            });
-        } catch (IOException e) {
-            throw new ManagerSaveException();
-        }
-
     }
 
     public static <T extends Task> T fromString(String value) {
         var params = value.splitWithDelimiters(",", 5);
         if (params.length > 4) {
-            switch ( params[1]) {
+            switch (params[1]) {
                 case ("TASK"):
                     return (T) new Task(params[2], params[4], Integer.parseInt(params[0]), TaskStatus.valueOf(params[3]));
                 case ("SUBTASK"):
@@ -62,14 +32,15 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         }
         throw new ManagerSaveException();
     }
-    public static <T extends Task> FileBackedTaskManager loadFromFile(String filename){
+
+    public static <T extends Task> FileBackedTaskManager loadFromFile(String filename) {
         var taskManager = new FileBackedTaskManager(filename);
-        try ( BufferedReader bReader = new BufferedReader(new FileReader( filename))){
-            while (bReader.ready()){
+        try (BufferedReader bReader = new BufferedReader(new FileReader(filename))) {
+            while (bReader.ready()) {
                 T tsk = fromString(bReader.readLine());
-                if (tsk instanceof Subtask){
+                if (tsk instanceof Subtask) {
                     taskManager.createSubtask((Subtask) tsk);
-                } else if ( tsk instanceof  Epic){
+                } else if (tsk instanceof Epic) {
                     taskManager.createEpic((Epic) tsk);
                 } else {
                     taskManager.createTask(tsk);
@@ -79,6 +50,35 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
             throw new ManagerSaveException();
         }
         return new FileBackedTaskManager(filename);
+    }
+
+    public void save() {
+        try (FileWriter writer = new FileWriter(fileName)) {
+            super.getAllTasks().forEach(t -> {
+                try {
+                    writer.write(t.toString() + System.lineSeparator());
+                } catch (IOException e) {
+                    throw new ManagerSaveException();
+                }
+            });
+            super.getAllSubtasks().forEach(t -> {
+                try {
+                    writer.write(t.toString() + System.lineSeparator());
+                } catch (IOException e) {
+                    throw new ManagerSaveException();
+                }
+            });
+            super.getAllEpics().forEach(t -> {
+                try {
+                    writer.write(t.toString() + System.lineSeparator());
+                } catch (IOException e) {
+                    throw new ManagerSaveException();
+                }
+            });
+        } catch (IOException e) {
+            throw new ManagerSaveException();
+        }
+
     }
 
     @Override
@@ -115,5 +115,11 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
     public void deleteSubtaskById(int id) {
         super.deleteSubtaskById(id);
         save();
+    }
+
+    enum taskTypes {
+        TASK,
+        EPIC,
+        SUBTASK
     }
 }

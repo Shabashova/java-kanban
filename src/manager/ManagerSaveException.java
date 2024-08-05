@@ -1,5 +1,5 @@
 package manager;
 
-public class ManagerSaveException extends Error{
+public class ManagerSaveException extends Error {
 
 }
