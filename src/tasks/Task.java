@@ -7,15 +7,12 @@ public class Task {
     private TaskStatus status;
 
 
-
     public Task(String name, String description, int id, TaskStatus status) {
         this.name = name;
         this.description = description;
         this.id = id;
         this.status = status;
     }
-
-
 
 
     // Геттеры и сеттеры

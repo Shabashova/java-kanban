@@ -1,17 +1,12 @@
 import manager.Managers;
+import manager.TaskManager;
 import tasks.Epic;
 import tasks.Subtask;
 import tasks.Task;
 import tasks.TaskStatus;
-import manager.InMemoryTaskManager;
-import manager.TaskManager;
-import manager.InMemoryHistoryManager;
-
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static manager.InMemoryTaskManager.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -44,7 +39,7 @@ public class Main {
         taskManager.createTask(task1);
         taskManager.createTask(task2);
         //TaskManager.updateEpicStatus(epic1);
-       // TaskManager.updateEpicStatus(epic2);
+        // TaskManager.updateEpicStatus(epic2);
 
 
         System.out.println(" Задача: " + task1.getName() + " - Статус: " + task1.getStatus() + " - ID: " + task1.getId());

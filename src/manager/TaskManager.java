@@ -6,7 +6,7 @@ import tasks.Task;
 
 import java.util.List;
 
-public abstract interface TaskManager {
+public interface TaskManager {
     List<Task> getAllTasks();
 
     List<Subtask> getAllSubtasks();
@@ -47,5 +47,5 @@ public abstract interface TaskManager {
 
     List<Integer> getSubtasksByEpic(Epic epic);
 
-    public List<Task> getHistory();
+    List<Task> getHistory();
 }
