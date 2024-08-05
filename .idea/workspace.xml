@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="214c6310-9528-4e09-83e1-5af8c481d6b1" name="Changes" comment="fix4" />
+    <list default="true" id="214c6310-9528-4e09-83e1-5af8c481d6b1" name="Changes" comment="fix4">
+      <change beforePath="$PROJECT_DIR$/src/manager/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/FileBackedTaskManager.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,34 +55,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "true",
-    "JUnit.FileBackedTaskManagerTest.executor": "Run",
-    "JUnit.InMemoryTaskManagerTest.executor": "Run",
-    "JUnit.InMemoryTaskManagerTest.testAddSubtaskToEpicInInMemoryTaskManager.executor": "Run",
-    "JUnit.InMemoryTaskManagerTest.testAddTaskToInMemoryTaskManager.executor": "Run",
-    "JUnit.InMemoryTaskManagerTest.testTaskEqualityById.executor": "Run",
-    "JUnit.InMemoryTaskManagerTest.testUpdateTaskInInMemoryTaskManager.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "sprint__7-solution-in-file-manager",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/v.vatskovskiy/IdeaProjects/5 sprint",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "inlay.hints"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;JUnit.FileBackedTaskManagerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InMemoryTaskManagerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InMemoryTaskManagerTest.testAddSubtaskToEpicInInMemoryTaskManager.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InMemoryTaskManagerTest.testAddTaskToInMemoryTaskManager.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InMemoryTaskManagerTest.testTaskEqualityById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InMemoryTaskManagerTest.testUpdateTaskInInMemoryTaskManager.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint__7-solution-in-file-manager&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/v.vatskovskiy/IdeaProjects/5 sprint&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />

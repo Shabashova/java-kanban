@@ -117,7 +117,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         save();
     }
 
-    enum taskTypes {
+    enum TaskTypes {
         TASK,
         EPIC,
         SUBTASK
