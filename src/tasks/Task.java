@@ -1,6 +1,7 @@
 package tasks;
 
 public class Task {
+    protected TaskTypes taskType;
     private String name;
     private String description;
     private int id;
@@ -12,6 +13,7 @@ public class Task {
         this.description = description;
         this.id = id;
         this.status = status;
+        this.taskType = TaskTypes.TASK;
     }
 
 
@@ -51,7 +53,7 @@ public class Task {
     @Override
     public String toString() {
         return this.id + ","
-                + "TASK" + ","
+                + taskType.toString() + ","
                 + this.name + ","
                 + this.status + ","
                 + this.description + ",";
@@ -65,5 +67,4 @@ public class Task {
         return false;
     }
 
-    ;
 }

@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-class FileBackedTaskManagerTest {
+class FileBackedTaskManagerTest extends test.TaskManagerTest {
     @org.junit.jupiter.api.Test
         //@BeforeAll
     void serializeDeserializeTest() throws IOException {
@@ -31,7 +31,6 @@ class FileBackedTaskManagerTest {
     }
 
     @org.junit.jupiter.api.Test
-        //@BeforeAll
     void saveTasksTest() throws IOException {
         TaskManager taskManager = null;
         try {
@@ -55,8 +54,6 @@ class FileBackedTaskManagerTest {
             throw new IOException(e);
         }
 
-
-        //taskManager.deleteAllTasks();
 
     }
 }

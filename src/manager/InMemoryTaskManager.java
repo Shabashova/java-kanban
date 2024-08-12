@@ -11,12 +11,12 @@ import java.util.List;
 import java.util.Map;
 
 public class InMemoryTaskManager implements TaskManager {
-    private final Map<Integer, Task> tasksMap = new HashMap<>();
-    private final Map<Integer, Epic> epicsMap = new HashMap<>();
+    protected final Map<Integer, Task> tasksMap = new HashMap<>();
+    protected final Map<Integer, Epic> epicsMap = new HashMap<>();
+    protected final Map<Integer, Subtask> subtasksMap = new HashMap<>();
 
-    private final Map<Integer, Subtask> subtasksMap = new HashMap<>();
     private final HistoryManager historyManager = Managers.historyManagerGetDefault();
-    private int taskIdCounter = 1; // Поле-счетчик для генерации идентификаторов задач
+    protected int taskIdCounter = 1; // Поле-счетчик для генерации идентификаторов задач
 
     @Override
     public List<Task> getAllTasks() {
