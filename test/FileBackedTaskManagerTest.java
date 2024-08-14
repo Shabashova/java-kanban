@@ -1,22 +1,17 @@
 package test;
 
-import manager.FileBackedTaskManager;
-import manager.TaskManager;
-import org.junit.jupiter.api.Assertions;
-import tasks.Epic;
-import tasks.Subtask;
-import tasks.Task;
-import tasks.TaskStatus;
+import manager.*;
+import org.junit.jupiter.api.*;
+import tasks.*;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
-class FileBackedTaskManagerTest extends test.TaskManagerTest {
-    @org.junit.jupiter.api.Test
+class FileBackedTaskManagerTest extends test.TaskManagerTest<FileBackedTaskManager> {
+    @Test
         //@BeforeAll
     void serializeDeserializeTest() throws IOException {
-        TaskManager taskManager = null;
+        FileBackedTaskManager taskManager = null;
         try {
             var file = File.createTempFile("test", "0");
             System.out.println(file.getPath());
@@ -30,9 +25,9 @@ class FileBackedTaskManagerTest extends test.TaskManagerTest {
 
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void saveTasksTest() throws IOException {
-        TaskManager taskManager = null;
+        FileBackedTaskManager taskManager = null;
         try {
             var file = File.createTempFile("test", "0");
             System.out.println(file.getPath());
@@ -53,7 +48,5 @@ class FileBackedTaskManagerTest extends test.TaskManagerTest {
         } catch (IOException e) {
             throw new IOException(e);
         }
-
-
     }
 }

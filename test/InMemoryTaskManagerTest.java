@@ -1,22 +1,16 @@
 package test;
 
 import manager.InMemoryTaskManager;
-import tasks.Epic;
-import tasks.Subtask;
-import tasks.Task;
-import tasks.TaskStatus;
+import org.junit.jupiter.api.Test;
+import tasks.*;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 
-class InMemoryTaskManagerTest extends test.TaskManagerTest {
+class InMemoryTaskManagerTest extends test.TaskManagerTest<InMemoryTaskManager> {
 
-
-    @org.junit.jupiter.api.Test
+    @Test
     public void testAddTaskToInMemoryTaskManager() {
         InMemoryTaskManager taskManager = new InMemoryTaskManager();
         Task task = new Task("Task 1", "Task 1", 1, TaskStatus.NEW);
@@ -24,7 +18,7 @@ class InMemoryTaskManagerTest extends test.TaskManagerTest {
         assertTrue(taskManager.getAllTasks().contains(task));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void testUpdateTaskInInMemoryTaskManager() {
         InMemoryTaskManager taskManager = new InMemoryTaskManager();
         Task task = new Task("Task 1", "Task 1", 1, TaskStatus.NEW);
@@ -34,7 +28,7 @@ class InMemoryTaskManagerTest extends test.TaskManagerTest {
         assertEquals(updatedTask, taskManager.getTaskById(1));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void testAddSubtaskToEpicInInMemoryTaskManager() {
         InMemoryTaskManager taskManager = new InMemoryTaskManager();
         List<Integer> subtasks = new ArrayList<>();

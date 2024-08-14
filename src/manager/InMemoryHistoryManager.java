@@ -1,10 +1,7 @@
 package manager;
 
-import tasks.Task;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import tasks.*;
+import java.util.*;
 
 public class InMemoryHistoryManager implements HistoryManager {
 
