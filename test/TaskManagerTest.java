@@ -1,25 +1,21 @@
 package test;
 
-import manager.*;
+import manager.TaskManager;
 import org.junit.jupiter.api.Test;
-import tasks.*;
-import static org.junit.jupiter.api.Assertions.*;
+import tasks.Task;
+import tasks.TaskStatus;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public abstract class TaskManagerTest<T extends TaskManager> {
+    protected T taskManager;
+
     @Test
-    //AlexeyCheuzov yesterday
-    // Теперь объект T можно протестировать как TaskManager
-    //
-    // вот ну вообще не поняла, что здесь надо сделать. TaskManager - это интерфейс,
-    // инстранциировать напрямую объект типа T невозможно, фабрики для него нет.
-    // М.б., и так сойдёт?
     void getAllTasks() {
-        TaskManager taskManager = Managers.getDefault();
         Task task = new Task("Задача 1", "Пэрвий", 1, TaskStatus.NEW);
         taskManager.createTask(task);
         assertEquals(taskManager.getAllTasks().getFirst(), task);
     }
-
 
     @Test
     void testTaskEqualityById() {

@@ -2,13 +2,23 @@ package test;
 
 import manager.InMemoryTaskManager;
 import org.junit.jupiter.api.Test;
-import tasks.*;
-import java.util.*;
+import tasks.Epic;
+import tasks.Subtask;
+import tasks.Task;
+import tasks.TaskStatus;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class InMemoryTaskManagerTest extends test.TaskManagerTest<InMemoryTaskManager> {
+
+    public InMemoryTaskManagerTest() {
+        taskManager = new InMemoryTaskManager();
+    }
 
     @Test
     public void testAddTaskToInMemoryTaskManager() {

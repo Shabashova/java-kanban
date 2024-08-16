@@ -1,25 +1,39 @@
 package test;
 
-import manager.*;
-import org.junit.jupiter.api.*;
-import tasks.*;
+import manager.FileBackedTaskManager;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import tasks.Epic;
+import tasks.Subtask;
+import tasks.Task;
+import tasks.TaskStatus;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 class FileBackedTaskManagerTest extends test.TaskManagerTest<FileBackedTaskManager> {
+    public FileBackedTaskManagerTest() {
+        try {
+            var file = File.createTempFile("test", "0");
+            taskManager = FileBackedTaskManager.loadFromFile(file.getPath());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Test
         //@BeforeAll
     void serializeDeserializeTest() throws IOException {
-        FileBackedTaskManager taskManager = null;
-        try {
-            var file = File.createTempFile("test", "0");
-            System.out.println(file.getPath());
-            taskManager = FileBackedTaskManager.loadFromFile(file.getPath());
-            System.out.println(taskManager);
-        } catch (IOException e) {
-            throw new IOException(e);
-        }
+        //FileBackedTaskManager taskManager = null;
+        //   try {
+        //  var file = File.createTempFile("test", "0");
+        //System.out.println(file.getPath());
+        // taskManager = FileBackedTaskManager.loadFromFile(file.getPath());
+        //System.out.println(taskManager);
+        //   } catch (IOException e) {
+        //       throw new IOException(e);
+        //  }
         Assertions.assertNotNull(taskManager);
         taskManager.deleteAllTasks();
 
