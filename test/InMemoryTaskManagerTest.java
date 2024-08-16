@@ -1,8 +1,7 @@
 package test;
 
 import manager.InMemoryTaskManager;
-import manager.Managers;
-import manager.TaskManager;
+import org.junit.jupiter.api.Test;
 import tasks.Epic;
 import tasks.Subtask;
 import tasks.Task;
@@ -15,28 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-class InMemoryTaskManagerTest {
-    @org.junit.jupiter.api.Test
-        //@BeforeAll
-    void getAllTasks() {
-        TaskManager taskManager = Managers.getDefault();
-        Task task = new Task("Задача 1", "Пэрвий", 1, TaskStatus.NEW);
-        taskManager.createTask(task);
-        assertEquals(taskManager.getAllTasks().get(0), task);
+class InMemoryTaskManagerTest extends test.TaskManagerTest<InMemoryTaskManager> {
+
+    public InMemoryTaskManagerTest() {
+        taskManager = new InMemoryTaskManager();
     }
 
-
-    @org.junit.jupiter.api.Test
-    void testTaskEqualityById() {
-        Task task1 = new Task("Task1", "Task 1", 1, TaskStatus.NEW);
-        Task task2 = new Task("Task1", "Task 1", 1, TaskStatus.NEW);
-        assertEquals(task1.getName(), task2.getName());
-        assertEquals(task1.getDescription(), task2.getDescription());
-        assertEquals(task1.getStatus(), task2.getStatus());
-    }
-
-
-    @org.junit.jupiter.api.Test
+    @Test
     public void testAddTaskToInMemoryTaskManager() {
         InMemoryTaskManager taskManager = new InMemoryTaskManager();
         Task task = new Task("Task 1", "Task 1", 1, TaskStatus.NEW);
@@ -44,7 +28,7 @@ class InMemoryTaskManagerTest {
         assertTrue(taskManager.getAllTasks().contains(task));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void testUpdateTaskInInMemoryTaskManager() {
         InMemoryTaskManager taskManager = new InMemoryTaskManager();
         Task task = new Task("Task 1", "Task 1", 1, TaskStatus.NEW);
@@ -54,7 +38,7 @@ class InMemoryTaskManagerTest {
         assertEquals(updatedTask, taskManager.getTaskById(1));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void testAddSubtaskToEpicInInMemoryTaskManager() {
         InMemoryTaskManager taskManager = new InMemoryTaskManager();
         List<Integer> subtasks = new ArrayList<>();

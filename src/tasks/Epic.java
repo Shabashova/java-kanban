@@ -9,6 +9,7 @@ public class Epic extends Task {
     public Epic(String name, String description, int id, TaskStatus status, List<Integer> subtasks) {
         super(name, description, id, status);
         this.subtasks = subtasks;
+        this.taskType = TaskTypes.EPIC;
     }
 
     public List<Integer> getSubtasks() {
@@ -18,5 +19,6 @@ public class Epic extends Task {
     public void setSubtasks(List<Integer> subtasks) {
         this.subtasks = subtasks;
     }
+
 }
 

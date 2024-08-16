@@ -1,6 +1,7 @@
 package tasks;
 
 public class Task {
+    protected TaskTypes taskType;
     private String name;
     private String description;
     private int id;
@@ -12,6 +13,7 @@ public class Task {
         this.description = description;
         this.id = id;
         this.status = status;
+        this.taskType = TaskTypes.TASK;
     }
 
 
@@ -47,4 +49,22 @@ public class Task {
     public void setStatus(TaskStatus status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return this.id + ","
+                + taskType.toString() + ","
+                + this.name + ","
+                + this.status + ","
+                + this.description + ",";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Task) {
+            return ((Task) obj).getId() == this.id;
+        }
+        return false;
+    }
+
 }
